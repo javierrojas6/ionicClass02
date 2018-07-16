@@ -1,6 +1,7 @@
+import { Proxy } from './../helpers/proxy/proxy';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { NgModule } from '@angular/core';
+import { IonicApp, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -10,8 +11,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CategoriaPage } from '../pages/categoria/categoria';
-
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     StatusBar,
-    SplashScreen
+    SplashScreen,
+    Proxy,
+    HttpClient
   ]
 })
 export class AppModule { }
