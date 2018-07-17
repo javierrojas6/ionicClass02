@@ -9,4 +9,21 @@
 
 <ion-content padding>
   <h3>Home</h3>
+  <form (submit)="login($event)" *ngIf="!isLogged">
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" name="paswword"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Login</button>
+  </form>
+  <div *ngIf="isLogged">
+    <h2>Bienvenido</h2>
+    <p>Nombre: {{user.nombre}}</p>
+    <p>Email: {{user.email}}</p>
+    <button ion-button block (click)="logOut()">Salir</button>
+  </div>
 </ion-content>
