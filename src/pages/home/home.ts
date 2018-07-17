@@ -4,6 +4,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { Product } from '../../models/product';
+import { API } from '../../config/api';
 
 @Component({
   selector: 'page-home',
@@ -37,7 +38,7 @@ export class HomePage implements OnInit {
       password: event.target[1].value,
     };
     console.log(params);
-    this.proxy.consult('http://localhost:3000/user/login', params, 'post')
+    this.proxy.consult(API.user.login, params, 'post')
       .subscribe(
         result => {
           console.log(result);
