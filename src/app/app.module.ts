@@ -1,3 +1,4 @@
+import { UserProxy } from './../helpers/proxy/user.proxy';
 import { Proxy } from './../helpers/proxy/proxy';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -37,7 +38,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     Proxy,
-    HttpClient
+    HttpClient,
+    UserProxy
   ]
 })
 export class AppModule { }
