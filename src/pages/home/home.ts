@@ -21,10 +21,10 @@ export class HomePage implements OnInit {
     var a = localStorage.getItem('user');
     if (a) {
       this.isLogged = true;
-      a = JSON.parse(a);
+      var tmp: { firstName: string, email: string } = JSON.parse(a);
       this.user = new Usuario();
-      this.user.nombre = a.firstName;
-      this.user.email = a.email;
+      this.user.nombre = tmp.firstName;
+      this.user.email = tmp.email;
     }
   }
   login(event) {
@@ -34,7 +34,7 @@ export class HomePage implements OnInit {
     };
     console.log(params);
     this.proxy.user.login(params)
-      .then(result => {
+      .then((result: { status: boolean, content: any }) => {
         if (result.status) {
           //logn exitoso
           localStorage.setItem('user', JSON.stringify(result.content));
@@ -52,7 +52,7 @@ export class HomePage implements OnInit {
 
   }
   logOut() {
-    var token = localStorage.removeItem('token');
+    var token:any = localStorage.removeItem('token');
     this.proxy.user.logout(token)
       .then(result => {
         localStorage.removeItem('user');
